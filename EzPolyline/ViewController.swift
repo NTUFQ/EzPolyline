@@ -17,7 +17,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var coordinateStringDisplay: UITextView!
-
+    @IBOutlet weak var centerAimView: UIView!
     
     @IBAction func cancelPoint() {
         if !polylinePoints.isEmpty {
@@ -95,6 +95,31 @@ class ViewController: UIViewController, MKMapViewDelegate {
         return MKOverlayRenderer(overlay: overlay)
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else {
+            return nil
+        }
+        
+        let annotationIdentifier = "AnnotationIdentifier"
+        
+        var annotationView: MKAnnotationView?
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+            annotationView = dequeuedAnnotationView
+            annotationView?.annotation = annotation
+        }
+        else {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        
+        if let annotationView = annotationView {
+            // Configure your annotation view here
+            annotationView.canShowCallout = false
+            annotationView.image = UIImage(named: "Oval")
+        }
+        return annotationView
+    }
+    
     //draw the center aim with UIBezierPath
     func drawCenter(){
         let horizontalLinePath = UIBezierPath(rect: CGRect(x: 0, y: view.center.y, width: view.frame.width, height: 0))
@@ -102,14 +127,14 @@ class ViewController: UIViewController, MKMapViewDelegate {
         horizontalLineLayer.path = horizontalLinePath.cgPath
         horizontalLineLayer.strokeColor = UIColor.red.cgColor
         horizontalLineLayer.lineWidth = 1.0
-        view.layer.addSublayer(horizontalLineLayer)
+        mapView.layer.addSublayer(horizontalLineLayer)
         
         let verticalLinePath = UIBezierPath(rect: CGRect(x: view.center.x, y: 0, width: 0, height: view.frame.height))
         let verticalLineLayer = CAShapeLayer()
         verticalLineLayer.path = verticalLinePath.cgPath
         verticalLineLayer.strokeColor = UIColor.red.cgColor
         verticalLineLayer.lineWidth = 1.0
-        view.layer.insertSublayer(verticalLineLayer, above: mapView.layer)
+        mapView.layer.addSublayer(verticalLineLayer)
     }
     
     //convert the coordinate list to a tuple string
