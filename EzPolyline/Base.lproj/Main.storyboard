@@ -21,9 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvL-VB-R9Z">
-                                <rect key="frame" x="0.0" y="160" width="375" height="447"/>
-                            </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gLY-On-kE5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
@@ -78,13 +75,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GFP-ad-8Hz" firstAttribute="height" secondItem="DXs-Qa-KPi" secondAttribute="height" id="0UN-2z-3jm"/>
-                            <constraint firstItem="yvL-VB-R9Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Hb-fQ-ow7"/>
                             <constraint firstAttribute="trailing" secondItem="gLY-On-kE5" secondAttribute="trailing" id="2Zs-8j-DVU"/>
                             <constraint firstAttribute="trailing" secondItem="GFP-ad-8Hz" secondAttribute="trailing" id="7Rp-gV-MJV"/>
                             <constraint firstAttribute="trailing" secondItem="yUN-jW-Xut" secondAttribute="trailing" id="8dy-YP-4kH"/>
                             <constraint firstItem="GFP-ad-8Hz" firstAttribute="leading" secondItem="DXs-Qa-KPi" secondAttribute="trailing" id="AjN-Na-XnK"/>
-                            <constraint firstItem="yvL-VB-R9Z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cgn-aS-jk9"/>
-                            <constraint firstAttribute="bottom" secondItem="yvL-VB-R9Z" secondAttribute="bottom" id="Cts-He-IuC"/>
                             <constraint firstItem="MAc-TW-fNV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DL0-NO-Ow5"/>
                             <constraint firstAttribute="bottom" secondItem="gLY-On-kE5" secondAttribute="bottom" id="Jbq-TH-GvW"/>
                             <constraint firstItem="DXs-Qa-KPi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KjE-kb-1Fg"/>
@@ -94,7 +88,6 @@
                             <constraint firstItem="GFP-ad-8Hz" firstAttribute="width" secondItem="DXs-Qa-KPi" secondAttribute="width" id="aHN-Sn-b7S"/>
                             <constraint firstItem="yUN-jW-Xut" firstAttribute="top" secondItem="MAc-TW-fNV" secondAttribute="bottom" id="cvT-nx-3LV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DXs-Qa-KPi" secondAttribute="bottom" id="g89-6a-cJE"/>
-                            <constraint firstAttribute="trailing" secondItem="yvL-VB-R9Z" secondAttribute="trailing" id="gQO-yj-1Ka"/>
                             <constraint firstItem="yUN-jW-Xut" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ibZ-aw-fdo"/>
                             <constraint firstItem="gLY-On-kE5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="k7t-EQ-m3A"/>
                             <constraint firstItem="MAc-TW-fNV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nqV-AB-Wvv"/>
@@ -112,7 +105,6 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="centerAimView" destination="yvL-VB-R9Z" id="93U-y1-Eu0"/>
                         <outlet property="coordinateDisplay" destination="MAc-TW-fNV" id="BeY-W7-O2k"/>
                         <outlet property="coordinateStringDisplay" destination="yUN-jW-Xut" id="CCR-jW-ukJ"/>
                         <outlet property="mapView" destination="gLY-On-kE5" id="PdT-Ad-13T"/>

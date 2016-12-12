@@ -122,7 +122,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     //draw the center aim with UIBezierPath
     func drawCenter(){
-        let horizontalLinePath = UIBezierPath(rect: CGRect(x: 0, y: view.center.y, width: view.frame.width, height: 0))
+        let horizontalLinePath = UIBezierPath(rect: CGRect(x: 0, y: view.center.y+10, width: view.frame.width, height: 0))
         let horizontalLineLayer = CAShapeLayer()
         horizontalLineLayer.path = horizontalLinePath.cgPath
         horizontalLineLayer.strokeColor = UIColor.red.cgColor
